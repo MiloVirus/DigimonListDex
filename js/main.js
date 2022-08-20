@@ -12,13 +12,19 @@ const callApi = async() =>
             let digiName= element.name          
             console.log(digiName)
            let list = document.createElement("div")
-           list.setAttribute("class","col-md")
+           list.setAttribute("class","col-4 colDigi")
            list.innerHTML= `
-           <div  class = "col-md-12">
-                <button id="${digiName}" onclick="callDigimon(${digiName})" class= "btn btn-primary"><h3>${element.name}</h3></button>
-           </div> 
+           
+                <div class="row rowDigi" id="${digiName}" onclick="callDigimon(${digiName})">
+                    <div class="col-8">
+                        <div class="digiName">${element.name}</div>
+                        <div class="digiLevel">${element.level}</div>
+                    </div>
+                    <div class="col-4"><img src="${element.img}"></div>    
+                </div>
+           
            `
-           document.getElementById("sideBar").appendChild(list) 
+           document.getElementById("listDigimon").appendChild(list) 
            
         });
         
@@ -33,9 +39,8 @@ const callDigimon = async(clicked_id) =>
             if(responseDigi)
             {
                 
-                console.log(responseDigi)
-                let newDigimon = document.createElement("div")
-                newDigimon.setAttribute("class","row")
+                
+                let newDigimon = document.getElementById("digimonContainer")
                 
                 newDigimon.innerHTML = `
                     <div class = "col-md-12"><h3>${responseDigi.data[0].name}</h3></div> 

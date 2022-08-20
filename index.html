@@ -13,17 +13,38 @@
 </head>
 
 <body>
-    <div id="containerDigimon" class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-            <div id="sideBar" class="col-md-4">
-            <h2>Digimon List</h2>
+            <div class="col-4" id="navPart">
+                <header>
+                    <h4>Digimon List</h4>
+                    <nav class="navbar navbar-expand-lg">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-nav">
+                            <button class="btn btn-primary">Digimon List</button>
+                        </div>
+                    </nav>
+                </header>
             </div>
-            <div id="digimonContainer" class="col-md-8">
+            <div class="col-8">
+                <div class="row" id="listDigimon">
+                    
+                </div>
+                <div class="row">
 
+                </div>
+                
+                <div class="col" id="containerDataDigimon">
+                    
+                </div>
             </div>
         </div>
-        
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/main.js"></script>

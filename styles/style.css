@@ -3,16 +3,52 @@
     padding: 0;
     margin: 0;
 }
-#sideBar
+
+#navPart
 {
     color: white;
-    max-width: 250px;
-    background-color: rgb(0, 153, 255);
+    max-width: 200px;
+    background-color: rgb(36, 36, 36);
     text-align: center;
+    min-height: 1000px;
 }
-
 .btn
 {
     width: 100%;
     background-color: rgb(139, 0, 253);
+    margin: 0;
+    border: none;
+}
+.navbar-nav
+{
+    width: 100%;
+}
+.row
+{
+    width: 100%;
+    margin: 0;
+}
+.rowDigi
+{
+    align-items: center;
+    border: solid 2px;
+    border-color: rgb(146, 146, 146);
+    margin: 0;
+}
+.colDigi
+{
+    padding: 0;
+}
+.digiName
+{
+    font-weight: 700;
+    color: rgb(56, 56, 56);
+}
+#listDigimon
+{
+    max-height: 300px;
+}
+img
+{
+    width: 100%;
 }
