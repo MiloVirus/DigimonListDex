@@ -14,8 +14,8 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-4" id="navPart">
+        <div class="row" id="mainRow">
+            <div class="col-sm" id="navPart">
                 <header>
                     <h4>Digimon List</h4>
                     <nav class="navbar navbar-expand-lg">
@@ -30,7 +30,7 @@
                     </nav>
                 </header>
             </div>
-            <div class="col-8">
+            <div class="col-sm p-md-0" id="listContainer" >
                 <div class="row" id="listDigimon">
                     
                 </div>
@@ -38,14 +38,12 @@
 
                 </div>
                 
-                <div class="col" id="containerDataDigimon">
+                <div class="col" id="digimonContainer">
                     
                 </div>
             </div>
         </div>
     </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/main.js"></script>
 </body>

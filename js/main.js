@@ -48,7 +48,7 @@ const callDigimon = async(clicked_id) =>
                     <div class = "col-md-12"><h4>${responseDigi.data[0].level}</h4></div>
                 `
                 
-                document.getElementById("digimonContainer").appendChild(newDigimon)
+                
             }
             
         }

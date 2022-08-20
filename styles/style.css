@@ -3,14 +3,22 @@
     padding: 0;
     margin: 0;
 }
+.container-fluid
+{
+    padding: 0;
+}
 
 #navPart
 {
     color: white;
-    max-width: 200px;
+    max-width: 15%;
     background-color: rgb(36, 36, 36);
     text-align: center;
     min-height: 1000px;
+}
+#listContainer
+{
+    max-width: 100%;
 }
 .btn
 {
@@ -46,9 +54,22 @@
 }
 #listDigimon
 {
-    max-height: 300px;
+    max-height: 470px;
+    overflow-y: scroll;
 }
-img
+#listDigimon img
 {
     width: 100%;
+}
+.row::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+.row::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.row::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
