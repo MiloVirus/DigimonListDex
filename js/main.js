@@ -16,7 +16,7 @@ const callApi = async() =>
            list.setAttribute("class","col-4 colDigi")
            list.innerHTML= `
            
-                <div class="row rowDigi" id="${digiName}" onclick="callDigimon(${digiName})">
+                <div class="row rowDigi" id="${digiName}" onclick = callDigimon(${JSON.stringify(element)})>
                     <div class="col-8">
                         <div class="digiName">${element.name}</div>
                         <div class="digiLevel">${element.level}</div>
@@ -25,15 +25,16 @@ const callApi = async() =>
                 </div>
            `
            document.getElementById("listDigimon").appendChild(list) 
+           console.log(element)
            
         });
-
     } 
 }
 
 const callDigimon = async(clicked_id) => 
         {
-            let digimon = clicked_id.id
+            let digimon = (clicked_id.name)
+            console.log(digimon)
             const responseDigi = await axios.get(`https://digimon-api.vercel.app/api/digimon/name/${digimon}`)
             if(responseDigi)
             {
@@ -41,23 +42,56 @@ const callDigimon = async(clicked_id) =>
                 if(response)
                 {
                     const array = response.data
+
+                
+                        const result = array.filter(array => array.level === clicked_id.level)
+                        const fresh = array.filter(array => array.level === "Fresh")
+                        const training = array.filter(array => array.level === "In Training")
+                        const rookie = array.filter(array => array.level === "Rookie")
+                        const champion = array.filter(array => array.level === "Champion")
+                        const ultimate = array.filter(array => array.level === "Ultimate")
+                        const mega = array.filter(array => array.level === "Mega")
+                        
+                        const different = array.filter(array => array.level !== clicked_id.level)
+                        
+                        console.log(fresh)
+                        console.log(training)
+                        console.log(rookie)
+                        console.log(champion)
+                        console.log(ultimate)
+                        console.log(mega)
+                        
                     
-                const resultFresh = array.filter( array => array.level === "Fresh" );
-                const resultTraining = array.filter( array => array.level === "In Training" );
-                const resultRookie = array.filter( array => array.level === "Rookie" );
-                const resultChampion = array.filter( array => array.level === "Champion" );
-                const resultUltimate = array.filter( array => array.level === "Ultimate" );
-                const resultMega = array.filter( array => array.level === "Mega" );
 
+                    const labelsDigi = [
+                        fresh[1].level,
+                        training[1].level,
+                        rookie[1].level,
+                        champion[1].level,
+                        ultimate[1].level,
+                        mega[1].level,
+                      ];
 
-                const labels = [
-                    'Fresh',
-                    'In training',
-                    'Rookie',
-                    'Champion',
-                    'Ultimate',
-                    'Mega',
-                  ];
+                      const labelsDigiData = [
+                        fresh.length,
+                        training.length,
+                        rookie.length,
+                        champion.length,
+                        ultimate.length,
+                        mega.length,
+                      ];
+                    
+                    
+                    const newArray = labelsDigi.filter(labelsDigi => labelsDigi !== clicked_id.level)
+                    newArray.unshift(clicked_id.level)
+                    
+                    const newArrayData = labelsDigiData.filter(labelsDigiData => labelsDigiData !== result.length)
+                    newArrayData.unshift(result.length)
+                    console.log(newArrayData)
+                    
+                
+
+                const labels = newArray;
                 
                   const dataChart = {
                     labels: labels,
@@ -80,7 +114,7 @@ const callDigimon = async(clicked_id) =>
                         'rgb(153, 102, 255)'
                       ],
                       borderWidth: 1,
-                      data: [resultFresh.length, resultTraining.length, resultRookie.length, resultChampion.length, resultUltimate.length, resultMega.length],
+                      data: newArrayData,
                     }]
                   };
                 
@@ -114,8 +148,5 @@ const callDigimon = async(clicked_id) =>
                 }
                 
             }  
-        }
-        
-
-          
+        }  
 callApi()
