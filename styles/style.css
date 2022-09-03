@@ -11,7 +11,7 @@
 #navPart
 {
     color: white;
-    max-width: 15%;
+    max-width: 20%;
     background-color: rgb(36, 36, 36);
     text-align: center;
     min-height: 1000px;
@@ -61,6 +61,15 @@
 {
     width: 100%;
 }
+#containerDigiList
+{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+    margin-top: 20px;
+}
 .row::-webkit-scrollbar {
   width: 1em;
 }
@@ -73,3 +82,30 @@
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
+
+@media only screen and (max-width: 768px) {
+   #navPart
+   {
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+   }
+   .colDigi
+   {
+    width: 50%;
+   }
+   .col-md-12
+   {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   }
+   img
+   {
+    width: 100%;
+   }
+   div #myChart
+   {
+    min-height: 150px;
+   }
+  }
